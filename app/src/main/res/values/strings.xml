@@ -9,4 +9,7 @@
     <string name="model">Modelo</string>
     <string name="year">Año</string>
     <string name="desc">Descripción</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

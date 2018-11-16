@@ -1,6 +1,7 @@
 package cl.datageneral.usedcarchecklist
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +67,8 @@ class MainActivity : AppCompatActivity() {
 						itemInsp.chequeo = radioEst.tag.toString()
 						itemInsp.observacion = obs.text.toString()
 					}*/
+					val intent = Intent()
+					startActivity(intent)
 				}
 				.setNegativeButton(R.string.btnCancel) { dialog, id -> dialog.cancel() }
 		val alert = builder.create()
