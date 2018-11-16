@@ -1,10 +1,15 @@
 package cl.datageneral.usedcarchecklist
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
+import android.widget.RadioButton
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,24 +21,54 @@ class MainActivity : AppCompatActivity() {
 		setSupportActionBar(toolbar)
 
 		fab.setOnClickListener { view ->
-			Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-					.setAction("Action", null).show()
+			dialogNew()
+			/*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+					.setAction("Action", null).show()*/
 		}
 	}
 
-	override fun onCreateOptionsMenu(menu: Menu): Boolean {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		menuInflater.inflate(R.menu.menu_main, menu)
-		return true
-	}
+	private fun dialogNew() {
+		val builder = AlertDialog.Builder(this)
+		val factory = LayoutInflater.from(this)
+		val textEntryView = factory.inflate(R.layout.dg_newreview, null)
+		/*val obs = textEntryView.findViewById(R.id.observacion) as EditText
+		val realm = Realm.getDefaultInstance()
 
-	override fun onOptionsItemSelected(item: MenuItem): Boolean {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		return when (item.itemId) {
-			R.id.action_settings -> true
-			else -> super.onOptionsItemSelected(item)
+		val itemInsp = realm.where<InspeccionItemLista>()
+				.equalTo("inspeccion.idInspeccion",idInspeccion)
+				.equalTo("idItem.idItem",item.idItem)
+				.findFirst()
+
+		if(itemInsp!=null){
+			Log.e("itemInsp",itemInsp.chequeo)
+			Log.e("itemInsp",itemInsp.idInspeccionItemLista.toString())
 		}
+
+		obs.setText(itemInsp?.observacion)
+		textEntryView.itemDescripcion.text = itemInsp?.idItem!!.descripcion
+
+		when(itemInsp?.chequeo){
+			getString(R.string.tag_dg_s) -> textEntryView.radioS.isChecked = true
+			getString(R.string.tag_dg_n) -> textEntryView.radioN.isChecked = true
+			else -> textEntryView.radioX.isChecked = true
+		}*/
+
+		builder.setView(textEntryView)
+		builder.setTitle(R.string.dialogTitle)
+				.setCancelable(false)
+				.setPositiveButton(R.string.btnContinue) { _, _ ->
+					/*val selectedId = textEntryView.estadoChequeo.checkedRadioButtonId
+					val radioEst = textEntryView.findViewById(selectedId) as RadioButton
+
+					Log.e("Opcion seleccionada,"+itemInsp.idItem,"-"+radioEst.tag)
+
+					realm.executeTransaction { _ ->
+						itemInsp.chequeo = radioEst.tag.toString()
+						itemInsp.observacion = obs.text.toString()
+					}*/
+				}
+				.setNegativeButton(R.string.btnCancel) { dialog, id -> dialog.cancel() }
+		val alert = builder.create()
+		alert.show()
 	}
 }

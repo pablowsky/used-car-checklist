@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">UsedCarChecklist</string>
     <string name="action_settings">Settings</string>
+
+    <string name="dialogTitle">Identificacion</string>
+    <string name="btnContinue">Continuar</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="make">Marca</string>
+    <string name="model">Modelo</string>
+    <string name="year">Año</string>
+    <string name="desc">Descripción</string>
 </resources>
