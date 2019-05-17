@@ -34,4 +34,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Rx
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha1'
+
+    // Dependency injection
+    implementation "com.google.dagger:dagger:2.18"
+    implementation "com.google.dagger:dagger-android:2.18"
+    implementation "com.google.dagger:dagger-android-support:2.18"
+    kapt "com.google.dagger:dagger-compiler:2.18"
+    kapt "com.google.dagger:dagger-android-processor:2.18"
 }
