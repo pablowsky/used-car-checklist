@@ -1,4 +1,4 @@
-package cl.datageneral.models
+package cl.datageneral.usedcarchecklist.data.db.models
 
 import io.realm.RealmList
 import io.realm.RealmObject
@@ -8,10 +8,10 @@ import io.realm.annotations.Required
 /**
  * Created by Pablo Molina on 16-11-2018. s.pablo.molina@gmail.com
  */
-open class Category : RealmObject() {
+open class Item : RealmObject() {
 	@PrimaryKey
 	@Required
-	var idCategory:	Int? 	= null
-	var description:	String? = null
-	var items: RealmList<Item> = RealmList()
+	var idItem:			Int? 				= null
+	var description: 	String? 			= null
+	var answers: 		RealmList<Answer> 	= RealmList()
 }
